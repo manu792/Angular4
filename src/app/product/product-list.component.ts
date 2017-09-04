@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { ProductListService } from '../services/product-list.service';
 import { IProduct } from '../models/product'
 
@@ -48,6 +48,10 @@ export class ProductListComponent implements OnInit {
             this.products = response;
             this.filteredProducts = this.products;
         });
+    }
+
+    onNotify(message: string): void {
+        this.title = 'Product List: ' + message;
     }
 
     ngOnInit(): void {
