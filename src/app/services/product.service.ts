@@ -5,7 +5,7 @@ import { Observable } from "rxjs/Observable";
 import { IProduct } from "../models/product";
 
 @Injectable()
-export class ProductListService {
+export class ProductService {
     constructor(private http: Http){ }
 
     public getProducts(): Observable<IProduct[]> {

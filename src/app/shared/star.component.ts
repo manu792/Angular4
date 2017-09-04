@@ -1,5 +1,5 @@
 import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from '@angular/core';
-import { ProductListService } from '../services/product-list.service';
+import { ProductService } from '../services/product.service';
 import { IProduct } from '../models/product'
 
 

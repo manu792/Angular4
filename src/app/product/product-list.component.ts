@@ -1,5 +1,5 @@
 import { Component, OnInit, Output } from '@angular/core';
-import { ProductListService } from '../services/product-list.service';
+import { ProductService } from '../services/product.service';
 import { IProduct } from '../models/product'
 
 
@@ -27,7 +27,7 @@ export class ProductListComponent implements OnInit {
         this.filteredProducts = this.listFilter ? this.performFilter(this.listFilter) : this.products;
     }
 
-    constructor(private productListService: ProductListService) {
+    constructor(private productService: ProductService) {
         
      }
 
@@ -44,7 +44,7 @@ export class ProductListComponent implements OnInit {
             product.productName.toLocaleLowerCase().indexOf(filterBy) !== -1);
     }
     private getProducts(): void {
-        this.productListService.getProducts().subscribe(response => {
+        this.productService.getProducts().subscribe(response => {
             this.products = response;
             this.filteredProducts = this.products;
         });
