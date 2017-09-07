@@ -1,0 +1,20 @@
+<div class="panel panel-primary" *ngIf='product'>
+  <div class="panel-heading">
+    {{title + ': ' + product.productName}}
+  </div>
+  <div>
+    {{'Code: ' + product.productCode}}
+  </div>
+  <div>
+    {{'Release Date: ' + product.releaseDate}}
+  </div>
+  <div>
+    {{'Description: ' + product.description}}
+  </div>
+  <div>
+    {{'Price: ' + product.price}}
+  </div>
+  <div>
+    <button class="btn btn-default" (click)='onBack()'><span class="glyphicon glyphicon-chevron-left"></span> Back</button>
+  </div>
+</div>

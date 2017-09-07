@@ -4,7 +4,6 @@ import { IProduct } from '../models/product'
 
 
 @Component({
-  selector: 'pm-products',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css']
 })
@@ -17,6 +16,7 @@ export class ProductListComponent implements OnInit {
     imageWidth: number = 50;
     imageMargin: number = 2;
     filteredProducts: IProduct[];
+    errorMessage: string;
 
     _listFilter: string;
     get listFilter(): string {
@@ -38,7 +38,7 @@ export class ProductListComponent implements OnInit {
 
 
     // private methods
-    private performFilter(filterBy: string): IProduct[]{
+    private performFilter(filterBy: string): IProduct[] {
         filterBy = filterBy.toLocaleLowerCase();
         return this.products.filter((product: IProduct) => 
             product.productName.toLocaleLowerCase().indexOf(filterBy) !== -1);
@@ -47,7 +47,8 @@ export class ProductListComponent implements OnInit {
         this.productService.getProducts().subscribe(response => {
             this.products = response;
             this.filteredProducts = this.products;
-        });
+        },
+        error => this.errorMessage = <any>error);
     }
 
     onNotify(message: string): void {
